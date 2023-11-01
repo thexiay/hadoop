@@ -82,3 +82,9 @@ if(NOT WIN32)
         link_libhdfs_test(test_libhdfs_vecsum hdfs ${CMAKE_THREAD_LIBS_INIT} rt)
     endif()
 endif()
+
+# install hdfs headers file
+file(GLOB_RECURSE LIBHDFS_HEADER_FILES "${CMAKE_CURRENT_SOURCE_DIR}/include/*.h*")
+install(FILES ${LIBHDFS_HEADER_FILES} DESTINATION include/hdfs)
+# isntall hdfs share library
+install(TARGETS hdfs LIBRARY DESTINATION lib)
