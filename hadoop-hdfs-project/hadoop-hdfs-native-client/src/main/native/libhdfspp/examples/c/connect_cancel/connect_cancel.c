@@ -83,7 +83,7 @@ int main(int argc, char** argv) {
 
   fs = hdfsAllocateFileSystem(builder);
   if (fs == NULL) {
-    hdfsGetLastError(error_text, ERROR_BUFFER_SIZE);
+    hdfsGetLastError2(error_text, ERROR_BUFFER_SIZE);
     fprintf(stderr, "hdfsAllocateFileSystem returned null.\n%s\n", error_text);
     hdfsFreeBuilder(builder);
     ShutdownProtobufLibrary_C();
@@ -92,7 +92,7 @@ int main(int argc, char** argv) {
 
   int connected = hdfsConnectAllocated(fs, builder);
   if (connected != 0) {
-    hdfsGetLastError(error_text, ERROR_BUFFER_SIZE);
+    hdfsGetLastError2(error_text, ERROR_BUFFER_SIZE);
     fprintf(stderr, "hdfsConnectAllocated errored.\n%s\n", error_text);
     hdfsFreeBuilder(builder);
     ShutdownProtobufLibrary_C();

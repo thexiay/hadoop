@@ -42,7 +42,7 @@ TEST(HdfsppErrors, NullFileSystem) {
   tSize res = hdfsRead(fs, fd, buf, 4096);
   ASSERT_EQ(res, -1);
 
-  hdfsGetLastError(buf, 4096);
+  hdfsGetLastError2(buf, 4096);
 
   ASSERT_EQ(std::string(buf), "Cannot perform FS operations with null FS handle.");
 }
@@ -56,7 +56,7 @@ TEST(HdfsppErrors, NullFileHandle) {
   tSize res = hdfsRead(fs, fd, buf, 4096);
   ASSERT_EQ(res, -1);
 
-  hdfsGetLastError(buf, 4096);
+  hdfsGetLastError2(buf, 4096);
 
   ASSERT_EQ(std::string(buf), "Cannot perform FS operations with null File handle.");
 }
@@ -71,7 +71,7 @@ TEST(HdfsppErrors, ZeroLength) {
   tSize res = hdfsRead(fs, fd, buf, 1);
   ASSERT_EQ(res, -1);
 
-  hdfsGetLastError(buf, 0);
+  hdfsGetLastError2(buf, 0);
 
   ASSERT_EQ(std::string(buf), "");
 }
@@ -86,7 +86,7 @@ TEST(HdfsppErrors, NegativeLength) {
   tSize res = hdfsRead(fs, fd, buf, 1);
   ASSERT_EQ(res, -1);
 
-  hdfsGetLastError(buf, -1);
+  hdfsGetLastError2(buf, -1);
 
   ASSERT_EQ(std::string(buf), "");
 }
@@ -100,7 +100,7 @@ TEST(HdfsppErrors, MessageTruncation) {
   tSize res = hdfsRead(fs, fd, buf, 4096);
   ASSERT_EQ(res, -1);
 
-  hdfsGetLastError(buf, 10);
+  hdfsGetLastError2(buf, 10);
 
   ASSERT_EQ(std::string(buf), "Cannot pe");
 }

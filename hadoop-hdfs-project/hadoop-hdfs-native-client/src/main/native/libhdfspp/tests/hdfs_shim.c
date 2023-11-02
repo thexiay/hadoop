@@ -482,7 +482,7 @@ void hdfsFreeHedgedReadMetrics(struct hdfsHedgedReadMetrics *metrics) {
  * hdfs_ext functions
  */
 
-int hdfsGetLastError(char *buf, int len) {
+int hdfsGetLastError2(char *buf, int len) {
   return libhdfspp_hdfsGetLastError(buf, len);
 }
 

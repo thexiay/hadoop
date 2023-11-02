@@ -90,7 +90,7 @@
 #undef kObjectKindDirectory
 #undef hdfsReadStatistics
 #undef hdfsFileInfo
-#undef hdfsGetLastError
+#undef hdfsGetLastError2
 #undef hdfsCancel
 #undef hdfsGetBlockLocations
 #undef hdfsFreeBlockLocations

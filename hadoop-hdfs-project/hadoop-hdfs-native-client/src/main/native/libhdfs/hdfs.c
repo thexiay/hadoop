@@ -3523,6 +3523,10 @@ char* hdfsGetLastExceptionStackTrace()
   return getLastTLSExceptionStackTrace();
 }
 
+const char * hdfsGetLastError()
+{
+    return hdfsGetLastExceptionStackTrace();
+} 
 /**
  * vim: ts=4: sw=4: et:
  */

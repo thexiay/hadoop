@@ -65,7 +65,7 @@ extern "C" {
  *  @return     0 on successful read of the last error, -1 otherwise.
  **/
 LIBHDFS_EXTERNAL
-int hdfsGetLastError(char *buf, int len);
+int hdfsGetLastError2(char *buf, int len);
 
 
 /**

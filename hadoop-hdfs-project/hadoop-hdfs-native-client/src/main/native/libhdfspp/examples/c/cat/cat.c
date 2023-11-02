@@ -67,7 +67,7 @@ int main(int argc, char** argv) {
 
   hdfsFS fs = hdfsBuilderConnect(builder);
   if (fs == NULL) {
-    hdfsGetLastError(error_text, sizeof(error_text));
+    hdfsGetLastError2(error_text, sizeof(error_text));
     const char * host = uri->host ? uri->host : "<default>";
     int port = uri->port;
     if (port == 0)
@@ -79,7 +79,7 @@ int main(int argc, char** argv) {
 
   hdfsFile file = hdfsOpenFile(fs, uri->path, 0, 0, 0, 0);
   if (NULL == file) {
-    hdfsGetLastError(error_text, sizeof(error_text));
+    hdfsGetLastError2(error_text, sizeof(error_text));
     fprintf(stderr, "Unable to open file %s: %s\n", uri->path, error_text );
     hdfsDisconnect(fs);
     hdfsFreeBuilder(builder);
@@ -98,7 +98,7 @@ int main(int argc, char** argv) {
   int res = 0;
   res = hdfsCloseFile(fs, file);
   if (0 != res) {
-    hdfsGetLastError(error_text, sizeof(error_text));
+    hdfsGetLastError2(error_text, sizeof(error_text));
     fprintf(stderr, "Error closing file: %s\n", error_text);
     hdfsDisconnect(fs);
     hdfsFreeBuilder(builder);
@@ -107,7 +107,7 @@ int main(int argc, char** argv) {
 
   res = hdfsDisconnect(fs);
   if (0 != res) {
-    hdfsGetLastError(error_text, sizeof(error_text));
+    hdfsGetLastError2(error_text, sizeof(error_text));
     fprintf(stderr, "Error disconnecting filesystem: %s", error_text);
     hdfsFreeBuilder(builder);
     return 1;

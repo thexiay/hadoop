@@ -114,7 +114,7 @@ TEST(ConfigConnectBugs, Test_HDFS_11294) {
   // Verify it got to endpoint check
   char errMsgBuf[100];
   memset(errMsgBuf, 0, 100);
-  EXPECT_EQ( hdfsGetLastError(errMsgBuf, 100), 0);
+  EXPECT_EQ( hdfsGetLastError2(errMsgBuf, 100), 0);
   EXPECT_STREQ(errMsgBuf, "Exception:No endpoints found for namenode");
 
 

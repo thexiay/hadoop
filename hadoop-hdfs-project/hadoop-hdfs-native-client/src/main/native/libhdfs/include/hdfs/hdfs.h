@@ -646,7 +646,6 @@ extern  "C" {
     LIBHDFS_EXTERNAL
     int hdfsHFlush(hdfsFS fs, hdfsFile file);
 
-
     /**
      * hdfsHSync - Similar to posix fsync, Flush out the data in client's 
      * user buffer. all the way to the disk device (but the disk may have 
@@ -1073,6 +1072,36 @@ extern  "C" {
      */
     LIBHDFS_EXTERNAL
     char* hdfsGetLastExceptionStackTrace();
+
+    /**
+     * The libhdfs3 has but libhdfs doew not have function: √ means velox used, × means velox not used
+     * Some of those are in <hdfs/hdfs_ext.h>
+     * 
+     * hdfsBuilderSetPrincipal ×
+     * hdfsBuilderSetToken ×
+     * hdfsSync ×
+     * hdfsTruncate ×
+     * hdfsGetDelegationToken ×
+     * hdfsFreeDelegationToken ×
+     * hdfsRenewDelegationToken ×
+     * hdfsCancelDelegationToken ×
+     * hdfsGetHANamenodes ×
+     * hdfsGetHANamenodesWithConfig ×
+     * hdfsFreeNamenodeInformation ×
+     * hdfsGetFileBlockLocations ×
+     * hdfsFreeFileBlockLocations ×
+     * hdfsSetDefautUserName ×
+     * hdfsSetTokenForDefaultUser ×
+     */
+
+    /**
+    * Return error information of last failed operation.
+    *
+    * @return 			A not NULL const string point of last error information.
+    * 					Caller can only read this message and keep it unchanged. No need to free it.
+    * 					If last operation finished successfully, the returned message is undefined.
+    */
+    const char * hdfsGetLastError();
 
 #ifdef __cplusplus
 }

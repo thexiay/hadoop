@@ -85,7 +85,7 @@ thread_local std::string errstr;
 
 /* Fetch last error that happened in this thread */
 LIBHDFSPP_EXT_API
-int hdfsGetLastError(char *buf, int len) {
+int hdfsGetLastError2(char *buf, int len) {
   //No error message
   if(errstr.empty()){
     return -1;

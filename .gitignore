@@ -18,6 +18,8 @@ target
 build
 dependency-reduced-pom.xml
 make-build-debug
+.vscode
+.devcontainer
 
 # Filesystem contract test options and credentials
 auth-keys.xml
